@@ -5,13 +5,13 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Inc/SegmentController.c 
+../Inc/SegmentDigitController.c 
 
 OBJS += \
-./Inc/SegmentController.o 
+./Inc/SegmentDigitController.o 
 
 C_DEPS += \
-./Inc/SegmentController.d 
+./Inc/SegmentDigitController.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -21,7 +21,7 @@ Inc/%.o Inc/%.su Inc/%.cyclo: ../Inc/%.c Inc/subdir.mk
 clean: clean-Inc
 
 clean-Inc:
-	-$(RM) ./Inc/SegmentController.cyclo ./Inc/SegmentController.d ./Inc/SegmentController.o ./Inc/SegmentController.su
+	-$(RM) ./Inc/SegmentDigitController.cyclo ./Inc/SegmentDigitController.d ./Inc/SegmentDigitController.o ./Inc/SegmentDigitController.su
 
 .PHONY: clean-Inc
 

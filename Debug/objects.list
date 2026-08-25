@@ -1,4 +1,4 @@
-"./Inc/SegmentController.o"
+"./Inc/SegmentDigitController.o"
 "./Src/main.o"
 "./Src/syscalls.o"
 "./Src/sysmem.o"

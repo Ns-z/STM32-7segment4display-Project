@@ -1,0 +1,4 @@
+../Inc/SegmentDigitController.c:26:6:SegmentController	16	static
+../Inc/SegmentDigitController.c:61:6:SegmentOpener	16	static
+../Inc/SegmentDigitController.c:80:6:DigitOpener	16	static
+../Inc/SegmentDigitController.c:104:6:DigitController	16	static
