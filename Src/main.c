@@ -18,6 +18,7 @@
 
 #include "stm32g0xx.h"
 #include "stm32g031xx.h"
+#include "SegmentController.h"
 
 #define LEDDELAY    500000
 
@@ -26,32 +27,28 @@ void delay(volatile uint32_t);
 int main(void) {
 
 
-	/* Enable GPIOC clock */
-    //RCC->IOPENR |= (1U << 2);
 
+	//First Digit Opens PB9 connected
 	/* Enable GPIOB clock */
 	RCC->IOPENR |= (1U << 1);
 
 	// SETUP PB6 AS output
-	GPIOB->MODER &= ~(3U << 2*6);
-	GPIOB->MODER |= (1U << 2*6);
-
-	  /* Turn on LED */
-	//GPIOB->ODR |= (1U << 6);
-
-
-	/* Enable GPIOB clock */
-	RCC->IOPENR |= (1U << 1);
-
-	// SETUP PB6 AS output
-	GPIOB->MODER &= ~(3U << 2*5);
-	GPIOB->MODER |= (1U << 2*5);
+	GPIOB->MODER &= ~(3U << 2*9);
+	GPIOB->MODER |= (1U << 2*9);
 
 
 	// led 4th digit open
-	GPIOB->ODR |= (1U << 5);
-	//led 7segment B is open
-	GPIOB->ODR &= ~(1U << 6);
+	GPIOB->ODR |= (1U << 9);
+
+	// All segments working
+	SegmentController('A');
+	SegmentController('B');
+	SegmentController('C');
+	SegmentController('D');
+	SegmentController('E');
+	SegmentController('F');
+	SegmentController('G');
+	SegmentController('O');
 
 
     return 0;
