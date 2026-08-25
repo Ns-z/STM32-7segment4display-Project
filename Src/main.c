@@ -19,6 +19,7 @@
 #include <SegmentDigitController.h>
 #include "stm32g0xx.h"
 #include "stm32g031xx.h"
+#include "CharWriter.h"
 
 #define LEDDELAY    500000
 
@@ -26,25 +27,35 @@ void delay(volatile uint32_t);
 
 int main(void) {
 
-
-
-
 	DigitOpener(1);
 
-	// All segments working
-	SegmentController('A');
-	SegmentController('B');
-	SegmentController('C');
-	SegmentController('D');
-	SegmentController('E');
-	SegmentController('F');
-	SegmentController('G');
-	SegmentController('O');
+	CharacterShower('T');
 
+	/*	// All segments working
+	 SegmentController('A');
+	 SegmentController('B');
+	 SegmentController('C');
+	 SegmentController('D');
+	 SegmentController('E');
+	 SegmentController('F');
+	 SegmentController('G');
+	 SegmentController('.');
 
-    return 0;
+	 while (1) {
+
+	 DigitOpener(1);
+	 delay(500);
+	 DigitOpener(2);
+	 delay(500);
+	 DigitOpener(3);
+	 delay(500);
+	 DigitOpener(4);
+	 delay(500);
+
+	 return 0;
+	 }*/
 }
-
 void delay(volatile uint32_t s) {
-    for(; s>0; s--);
+	for (; s > 0; s--)
+		;
 }

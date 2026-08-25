@@ -51,7 +51,7 @@ void SegmentController(char segment) {
 	case 'G':
 		SegmentOpener(SEGMENT_G_PIN_NUMBER);
 		break;
-	case 'O':
+	case '.':
 		SegmentOpener(SEGMENT_DOT_PIN_NUMBER);
 		break;
 
@@ -64,6 +64,7 @@ void SegmentOpener(int segmentConnectedNumber) {
 	GPIOB->MODER &= ~(3U << 2 * segmentConnectedNumber);
 	GPIOB->MODER |= (1U << 2 * segmentConnectedNumber);
 
+	//open gpiob port
 	GPIOB->ODR &= ~(1U << segmentConnectedNumber);
 
 }
@@ -110,6 +111,7 @@ void DigitController(int gpioAconnectedNumber){
 	GPIOA->MODER &= ~(3U << 2 * gpioAconnectedNumber);
 	GPIOA->MODER |= (1U << 2 * gpioAconnectedNumber);
 
+	// open gpioa port
 	GPIOA->ODR |= (1U << gpioAconnectedNumber);
 
 
