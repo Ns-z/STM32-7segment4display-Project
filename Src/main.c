@@ -16,16 +16,47 @@
  ******************************************************************************
  */
 
-#include <stdint.h>
+#include "stm32g0xx.h"
+#include "stm32g031xx.h"
 
-#if !defined(__SOFT_FP__) && defined(__ARM_FP)
-  #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
-#endif
+#define LEDDELAY    500000
 
-int main(void)
-{
-    /* Loop forever */
-	for(;;);
+void delay(volatile uint32_t);
 
-	//deneme
+int main(void) {
+
+
+	/* Enable GPIOC clock */
+    //RCC->IOPENR |= (1U << 2);
+
+	/* Enable GPIOB clock */
+	RCC->IOPENR |= (1U << 1);
+
+	// SETUP PB6 AS output
+	GPIOB->MODER &= ~(3U << 2*6);
+	GPIOB->MODER |= (1U << 2*6);
+
+	  /* Turn on LED */
+	//GPIOB->ODR |= (1U << 6);
+
+
+	/* Enable GPIOB clock */
+	RCC->IOPENR |= (1U << 1);
+
+	// SETUP PB6 AS output
+	GPIOB->MODER &= ~(3U << 2*5);
+	GPIOB->MODER |= (1U << 2*5);
+
+
+	// led 4th digit open
+	GPIOB->ODR |= (1U << 5);
+	//led 7segment B is open
+	GPIOB->ODR &= ~(1U << 6);
+
+
+    return 0;
+}
+
+void delay(volatile uint32_t s) {
+    for(; s>0; s--);
 }
