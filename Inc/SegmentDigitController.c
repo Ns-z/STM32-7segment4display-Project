@@ -23,6 +23,9 @@
 #define DIGIT_3 4 // PA4 CONNECTED
 #define DIGIT_4 5 // PA5 CONNECTED digit en soldaki en buyuk
 
+#define DIGIT_OPEN 1
+#define DIGIT_CLOSE 0
+
 void SegmentController(char segment) {
 
 	/* Enable GPIOB clock */
@@ -69,7 +72,6 @@ void SegmentOpener(int segmentConnectedNumber) {
 
 }
 
-
 /*
  * GPIOA DIGITLER ICIN SECILDI
  * GPIOA0, GPIOA1, GPIOA4, GPIOA5
@@ -78,31 +80,48 @@ void SegmentOpener(int segmentConnectedNumber) {
  * GPI0A4 = 3.BASAMAK
  * GPIOA5 = 4.BASAMAK
  */
-void DigitOpener(int digitNumber) {
+void DigitControl(int digitNumber, int state) {
 
+	if (state != 0) {
 
-	switch (digitNumber) {
+		switch (digitNumber) {
 
-	case 1 :
-		DigitController(DIGIT_1);
-		break;
-	case 2 :
-		DigitController(DIGIT_2);
-		break;
-	case 3 :
-		DigitController(DIGIT_3);
-		break;
-	case 4 :
-		DigitController(DIGIT_4);
-		break;
+		case 1:
+			DigitOpener(DIGIT_1);
+			break;
+		case 2:
+			DigitOpener(DIGIT_2);
+			break;
+		case 3:
+			DigitOpener(DIGIT_3);
+			break;
+		case 4:
+			DigitOpener(DIGIT_4);
+			break;
 
+		}
+	} else if (state == 0) {
+
+		switch (digitNumber) {
+
+		case 1:
+			DigitCloser(DIGIT_1);
+			break;
+		case 2:
+			DigitCloser(DIGIT_2);
+			break;
+		case 3:
+			DigitCloser(DIGIT_3);
+			break;
+		case 4:
+			DigitCloser(DIGIT_4);
+			break;
+		}
 	}
-
 
 }
 
-
-void DigitController(int gpioAconnectedNumber){
+void DigitOpener(int gpioAconnectedNumber) {
 
 	/* Enable GPIOA clock */
 	RCC->IOPENR |= (1U);
@@ -114,5 +133,18 @@ void DigitController(int gpioAconnectedNumber){
 	// open gpioa port
 	GPIOA->ODR |= (1U << gpioAconnectedNumber);
 
+}
+
+void DigitCloser(int gpioAconnectedNumber) {
+
+	/* Enable GPIOA clock */
+	RCC->IOPENR |= (1U << gpioAconnectedNumber);
+
+	// SETUP PA AS output
+	GPIOA->MODER &= ~(3U << 2 * gpioAconnectedNumber);
+	GPIOA->MODER |= (1U << 2 * gpioAconnectedNumber);
+
+	// open gpioa port
+	GPIOA->ODR &= ~(1U << gpioAconnectedNumber);
 
 }

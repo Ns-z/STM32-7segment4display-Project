@@ -10,7 +10,9 @@
 
 void SegmentController(char segment);
 void SegmentOpener(int segmentConnectedNumber);
-void DigitOpener(int digitNumber);
-void DigitController(int gpioAconnectedNumber);
+
+void DigitControl(int digitNumber, int state);
+void DigitOpener(int gpioAconnectedNumber);
+void DigitCloser(int gpioAconnectedNumber);
 
 #endif /* SEGMENTDIGITCONTROLLER_H_ */

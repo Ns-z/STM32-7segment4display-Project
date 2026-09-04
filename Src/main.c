@@ -20,16 +20,24 @@
 #include "stm32g0xx.h"
 #include "stm32g031xx.h"
 #include "CharWriter.h"
+#include "DisplayController.h"
 
-#define LEDDELAY    500000
+#define LEDDELAY    5000
 
 void delay(volatile uint32_t);
 
 int main(void) {
 
-	DigitOpener(1);
+	DigitControl(1, 1);
+	DigitControl(2, 1);
+	DigitControl(3, 1);
+	DigitControl(4, 1);
 
-	CharacterShower('T');
+	CharacterShower('.');
+
+
+	DigitCloser(3);
+
 
 	/*	// All segments working
 	 SegmentController('A');

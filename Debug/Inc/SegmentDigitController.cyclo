@@ -1,4 +1,5 @@
-../Inc/SegmentDigitController.c:26:6:SegmentController	10
-../Inc/SegmentDigitController.c:61:6:SegmentOpener	1
-../Inc/SegmentDigitController.c:81:6:DigitOpener	7
-../Inc/SegmentDigitController.c:105:6:DigitController	1
+../Inc/SegmentDigitController.c:29:6:SegmentController	10
+../Inc/SegmentDigitController.c:64:6:SegmentOpener	1
+../Inc/SegmentDigitController.c:83:6:DigitControl	15
+../Inc/SegmentDigitController.c:124:6:DigitOpener	1
+../Inc/SegmentDigitController.c:138:6:DigitCloser	1

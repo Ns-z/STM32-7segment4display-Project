@@ -6,14 +6,17 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../Inc/CharWriter.c \
+../Inc/DisplayController.c \
 ../Inc/SegmentDigitController.c 
 
 OBJS += \
 ./Inc/CharWriter.o \
+./Inc/DisplayController.o \
 ./Inc/SegmentDigitController.o 
 
 C_DEPS += \
 ./Inc/CharWriter.d \
+./Inc/DisplayController.d \
 ./Inc/SegmentDigitController.d 
 
 
@@ -24,7 +27,7 @@ Inc/%.o Inc/%.su Inc/%.cyclo: ../Inc/%.c Inc/subdir.mk
 clean: clean-Inc
 
 clean-Inc:
-	-$(RM) ./Inc/CharWriter.cyclo ./Inc/CharWriter.d ./Inc/CharWriter.o ./Inc/CharWriter.su ./Inc/SegmentDigitController.cyclo ./Inc/SegmentDigitController.d ./Inc/SegmentDigitController.o ./Inc/SegmentDigitController.su
+	-$(RM) ./Inc/CharWriter.cyclo ./Inc/CharWriter.d ./Inc/CharWriter.o ./Inc/CharWriter.su ./Inc/DisplayController.cyclo ./Inc/DisplayController.d ./Inc/DisplayController.o ./Inc/DisplayController.su ./Inc/SegmentDigitController.cyclo ./Inc/SegmentDigitController.d ./Inc/SegmentDigitController.o ./Inc/SegmentDigitController.su
 
 .PHONY: clean-Inc
 

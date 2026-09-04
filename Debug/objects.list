@@ -1,4 +1,5 @@
 "./Inc/CharWriter.o"
+"./Inc/DisplayController.o"
 "./Inc/SegmentDigitController.o"
 "./Src/main.o"
 "./Src/syscalls.o"
